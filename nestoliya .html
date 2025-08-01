@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$Nestoliya | Error on Solana</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Luckiest Guy', cursive;
+      color: #fff;
+      background: url('https://i.imgur.com/EPqVtAH.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      text-align: center;
+    }
+
+    .site-title {
+      font-size: 2.5em;
+      margin-top: 30px;
+      color: #ffeb3b;
+      text-shadow: 2px 2px #000;
+    }
+
+    .tagline {
+      font-size: 1.2em;
+      color: #00ffff;
+      text-shadow: 1px 1px #000;
+    }
+
+    .buy-section {
+      margin-top: 30px;
+      position: relative;
+    }
+
+    .buy-section a {
+      display: inline-block;
+      margin: 15px auto;
+      padding: 12px 24px;
+      background: #00ff00;
+      color: #000;
+      border: 3px solid #000;
+      border-radius: 15px;
+      font-size: 1em;
+      text-decoration: none;
+      animation: pulse 1.5s infinite;
+      font-family: 'Chewy', cursive;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 10px #00ff00; }
+      50% { transform: scale(1.05); box-shadow: 0 0 20px #00ff00; }
+      100% { transform: scale(1); box-shadow: 0 0 10px #00ff00; }
+    }
+
+    .mouse-click {
+      position: absolute;
+      width: 50px;
+      display: none;
+      z-index: 10;
+      animation: clickAnim 1s ease-in-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes clickAnim {
+      0% { transform: scale(1) translateY(0); opacity: 1; }
+      50% { transform: scale(1.1) translateY(5px); }
+      100% { transform: scale(1) translateY(10px); opacity: 0; }
+    }
+
+    .buttons {
+      margin: 30px 0;
+    }
+
+    .buttons a img {
+      width: 90px;
+      margin: 0 10px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .buttons a img:hover {
+      transform: scale(1.1);
+      border-color: #00ff00;
+    }
+
+    .roadmap, .token-info {
+      background: rgba(0, 0, 0, 0.7);
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 500px;
+      border: 3px dashed #fff;
+      border-radius: 15px;
+      font-size: 1em;
+      text-align: left;
+      font-family: 'Chewy', cursive;
+    }
+
+    .roadmap h2, .token-info h2 {
+      text-align: center;
+      font-size: 1.4em;
+      color: #39ff14;
+    }
+
+    footer {
+      margin: 40px 0;
+      font-size: 0.8em;
+      text-shadow: 1px 1px #000;
+      font-family: 'Chewy', cursive;
+    }
+
+    @media screen and (max-width: 600px) {
+      .buttons a img {
+        width: 70px;
+      }
+
+      .site-title {
+        font-size: 2em;
+      }
+
+      .tagline {
+        font-size: 1em;
+      }
+
+      .buy-section a {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="site-title">$Nestoliya</div>
+  <div class="tagline">Error on Solana</div>
+  <div class="tagline">Buy on pump.fun</div>
+
+  <div class="buy-section">
+    <a id="buyBtn" href="https://pump.fun/profile/GyjSFiS8bvmNm8KZXtRDPvhQA8GvNwDDJrMiHmvPPJm3?tab=balances" target="_blank">BUY NOW</a>
+    <img id="mouseCursor" class="mouse-click" src="https://i.imgur.com/DZoJ0xN.png" alt="Mouse">
+  </div>
+
+  <div class="buttons">
+    <a href="https://dexscreener.com" target="_blank"><img src="https://i.imgur.com/zRSqsGI.png" alt="Dexscreener"/></a>
+    <a href="https://x.com/nestoliya?t=3_wCsMysJTuVzdZ3U5DEcQ&s=09" target="_blank"><img src="https://i.imgur.com/e2euc2n.png" alt="Twitter X"/></a>
+    <a href="https://pump.fun/board" target="_blank"><img src="https://i.imgur.com/ALzGAar.png" alt="Pump.fun"/></a>
+  </div>
+
+  <div class="roadmap">
+    <h2>Roadmap</h2>
+    <ul>
+      <li>✅ Meme Launch on Solana</li>
+      <li>🚀 Pump.fun trending</li>
+      <li>📈 Dexscreener listing</li>
+      <li>🎯 Community Quests</li>
+      <li>📢 Influencer Marketing</li>
+      <li>🌕 $Nestoliya to the moon!</li>
+    </ul>
+  </div>
+
+  <div class="token-info">
+    <h2>Token Info</h2>
+    <ul>
+      <li><strong>Total Supply:</strong> 10,00,00,000</li>
+      <li><strong>Max Supply:</strong> 10,00,00,000</li>
+      <li><strong>Dev Hold:</strong> 2%</li>
+      <li><strong>Liquidity Lock:</strong> Yes</li>
+    </ul>
+  </div>
+
+  <footer>&copy; 2025 $Nestoliya. All rights reserved.</footer>
+
+  <script>
+    document.getElementById("buyBtn").addEventListener("click", function(e) {
+      const mouse = document.getElementById("mouseCursor");
+      const rect = e.target.getBoundingClientRect();
+      mouse.style.left = (rect.left + rect.width / 2 - 25) + "px";
+      mouse.style.top = (rect.top + window.scrollY - 60) + "px";
+      mouse.style.display = "block";
+      mouse.style.animation = "none";
+      void mouse.offsetWidth;
+      mouse.style.animation = "clickAnim 1s ease-in-out forwards";
+      setTimeout(() => { mouse.style.display = "none"; }, 1000);
+    });
+  </script>
+
+</body>
+</html>
