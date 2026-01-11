@@ -1,190 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$Nestoliya | Error on Solana</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Chewy&family=Luckiest+Guy&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PINKPORTAL</title>
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Luckiest Guy', cursive;
-      color: #fff;
-      background: url('https://i.imgur.com/EPqVtAH.jpeg') no-repeat center center fixed;
-      background-size: cover;
-      text-align: center;
-    }
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    .site-title {
-      font-size: 2.5em;
-      margin-top: 30px;
-      color: #ffeb3b;
-      text-shadow: 2px 2px #000;
-    }
+<style>
+body{
+  margin:0;
+  font-family:'Inter', sans-serif;
+  color:#fff;
+  text-align:center;
+  background:#08000d;
+  overflow-x:hidden;
+}
 
-    .tagline {
-      font-size: 1.2em;
-      color: #00ffff;
-      text-shadow: 1px 1px #000;
-    }
+h1,h2{
+  font-family:'Orbitron', sans-serif;
+  color:#ff2bd6;
+  letter-spacing:3px;
+}
 
-    .buy-section {
-      margin-top: 30px;
-      position: relative;
-    }
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:20px;
+}
 
-    .buy-section a {
-      display: inline-block;
-      margin: 15px auto;
-      padding: 12px 24px;
-      background: #00ff00;
-      color: #000;
-      border: 3px solid #000;
-      border-radius: 15px;
-      font-size: 1em;
-      text-decoration: none;
-      animation: pulse 1.5s infinite;
-      font-family: 'Chewy', cursive;
-    }
+.logo img{
+  max-width:280px;
+  margin:20px auto;
+  filter: drop-shadow(0 0 20px #ff2bd6);
+}
 
-    @keyframes pulse {
-      0% { transform: scale(1); box-shadow: 0 0 10px #00ff00; }
-      50% { transform: scale(1.05); box-shadow: 0 0 20px #00ff00; }
-      100% { transform: scale(1); box-shadow: 0 0 10px #00ff00; }
-    }
+.buy-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:linear-gradient(90deg,#ff2bd6,#ff79e9);
+  color:#000;
+  padding:12px 30px;
+  border-radius:40px;
+  font-weight:700;
+  margin:10px;
+  text-decoration:none;
+  box-shadow:0 0 25px #ff2bd6;
+  transition:.3s;
+}
 
-    .mouse-click {
-      position: absolute;
-      width: 50px;
-      display: none;
-      z-index: 10;
-      animation: clickAnim 1s ease-in-out forwards;
-      pointer-events: none;
-    }
+.buy-btn:hover{
+  box-shadow:0 0 45px #ff79e9;
+}
 
-    @keyframes clickAnim {
-      0% { transform: scale(1) translateY(0); opacity: 1; }
-      50% { transform: scale(1.1) translateY(5px); }
-      100% { transform: scale(1) translateY(10px); opacity: 0; }
-    }
+.buy-btn img{
+  width:22px;
+}
 
-    .buttons {
-      margin: 30px 0;
-    }
+#livePriceBox{
+  display:inline-flex;
+  align-items:center;
+  background:rgba(255,43,214,.12);
+  color:#ff79e9;
+  font-family:'Orbitron';
+  font-weight:bold;
+  padding:6px 14px;
+  border-radius:12px;
+  margin-bottom:6px;
+}
 
-    .buttons a img {
-      width: 90px;
-      margin: 0 10px;
-      border: 3px solid #fff;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-    }
+#livePriceBox .dot{
+  width:10px;
+  height:10px;
+  background:#00ff00;
+  border-radius:50%;
+  margin-right:8px;
+  animation:blink 1s infinite;
+}
 
-    .buttons a img:hover {
-      transform: scale(1.1);
-      border-color: #00ff00;
-    }
+@keyframes blink{
+  0%,50%,100%{opacity:1;}
+  25%,75%{opacity:0;}
+}
 
-    .roadmap, .token-info {
-      background: rgba(0, 0, 0, 0.7);
-      margin: 30px auto;
-      padding: 20px;
-      max-width: 500px;
-      border: 3px dashed #fff;
-      border-radius: 15px;
-      font-size: 1em;
-      text-align: left;
-      font-family: 'Chewy', cursive;
-    }
+.ca-box{
+  background:#120016;
+  border:2px solid #ff2bd6;
+  border-radius:14px;
+  padding:14px;
+  margin:20px 0;
+  color:#ff79e8;
+  font-weight:bold;
+  word-break:break-all;
+}
 
-    .roadmap h2, .token-info h2 {
-      text-align: center;
-      font-size: 1.4em;
-      color: #39ff14;
-    }
+.section{
+  background:#120016;
+  border:1px solid #ff2bd6;
+  border-radius:18px;
+  padding:20px;
+  margin:25px 0;
+}
 
-    footer {
-      margin: 40px 0;
-      font-size: 0.8em;
-      text-shadow: 1px 1px #000;
-      font-family: 'Chewy', cursive;
-    }
+iframe{
+  width:100%;
+  height:450px;
+  border:none;
+  border-radius:14px;
+}
 
-    @media screen and (max-width: 600px) {
-      .buttons a img {
-        width: 70px;
-      }
+.x-link img{
+  width:42px;
+  margin-top:10px;
+  filter:drop-shadow(0 0 10px #ff2bd6);
+}
 
-      .site-title {
-        font-size: 2em;
-      }
-
-      .tagline {
-        font-size: 1em;
-      }
-
-      .buy-section a {
-        font-size: 0.9em;
-      }
-    }
-  </style>
+.footer{
+  margin:40px 0 10px;
+  font-size:13px;
+  color:#ff89e8;
+}
+</style>
 </head>
 <body>
 
-  <div class="site-title">$Nestoliya</div>
-  <div class="tagline">Error on Solana</div>
-  <div class="tagline">Buy on pump.fun</div>
+<div class="container">
 
-  <div class="buy-section">
-    <a id="buyBtn" href="https://pump.fun/profile/GyjSFiS8bvmNm8KZXtRDPvhQA8GvNwDDJrMiHmvPPJm3?tab=balances" target="_blank">BUY NOW</a>
-    <img id="mouseCursor" class="mouse-click" src="https://i.imgur.com/DZoJ0xN.png" alt="Mouse">
-  </div>
+<h1>PINKPORTAL</h1>
 
-  <div class="buttons">
-    <a href="https://dexscreener.com" target="_blank"><img src="https://i.imgur.com/zRSqsGI.png" alt="Dexscreener"/></a>
-    <a href="https://x.com/nestoliya?t=3_wCsMysJTuVzdZ3U5DEcQ&s=09" target="_blank"><img src="https://i.imgur.com/e2euc2n.png" alt="Twitter X"/></a>
-    <a href="https://pump.fun/board" target="_blank"><img src="https://i.imgur.com/ALzGAar.png" alt="Pump.fun"/></a>
-  </div>
+<div class="logo">
+  <img src="https://i.ibb.co/NnQ6qpgP/New-Drawing-removebg-preview.png">
+</div>
 
-  <div class="roadmap">
-    <h2>Roadmap</h2>
-    <ul>
-      <li>✅ Meme Launch on Solana</li>
-      <li>🚀 Pump.fun trending</li>
-      <li>📈 Dexscreener listing</li>
-      <li>🎯 Community Quests</li>
-      <li>📢 Influencer Marketing</li>
-      <li>🌕 $Nestoliya to the moon!</li>
-    </ul>
-  </div>
+<div id="livePriceBox">
+  <div class="dot"></div>
+  <span id="livePriceText">$0.000000</span>
+</div>
 
-  <div class="token-info">
-    <h2>Token Info</h2>
-    <ul>
-      <li><strong>Total Supply:</strong> 10,00,00,000</li>
-      <li><strong>Max Supply:</strong> 10,00,00,000</li>
-      <li><strong>Dev Hold:</strong> 2%</li>
-      <li><strong>Liquidity Lock:</strong> Yes</li>
-    </ul>
-  </div>
+<a id="buyNow" class="buy-btn" target="_blank">
+  <img src="https://i.ibb.co/spZsHzq3/images-removebg-preview.png">
+  BUY NOW
+</a>
 
-  <footer>&copy; 2025 $Nestoliya. All rights reserved.</footer>
+<div class="x-link">
+  <a href="https://x.com/pink_portal1?s=09" target="_blank">
+    <img src="https://i.ibb.co/nsfr05sC/images-9-removebg-preview.png">
+  </a>
+</div>
 
-  <script>
-    document.getElementById("buyBtn").addEventListener("click", function(e) {
-      const mouse = document.getElementById("mouseCursor");
-      const rect = e.target.getBoundingClientRect();
-      mouse.style.left = (rect.left + rect.width / 2 - 25) + "px";
-      mouse.style.top = (rect.top + window.scrollY - 60) + "px";
-      mouse.style.display = "block";
-      mouse.style.animation = "none";
-      void mouse.offsetWidth;
-      mouse.style.animation = "clickAnim 1s ease-in-out forwards";
-      setTimeout(() => { mouse.style.display = "none"; }, 1000);
-    });
-  </script>
+<div id="caBox" class="ca-box"></div>
+
+<div class="section">
+  <h2>OPEN LINKS</h2>
+
+  <a id="pumpBtn" class="buy-btn" target="_blank">
+    <img src="https://i.ibb.co/spZsHzq3/images-removebg-preview.png">
+    PUMP.FUN
+  </a>
+
+  <a id="solBtn" class="buy-btn" target="_blank">
+    <img src="https://i.ibb.co/6RT4VkH7/favicon-2-Hung-Dinh.png">
+    SOLSCAN
+  </a>
+</div>
+
+<div class="section">
+  <h2>LIVE CHART</h2>
+  <iframe id="dexFrame"></iframe>
+</div>
+
+<div class="section">
+  <h2>ROADMAP</h2>
+  <p>• 100% FEE Buyback </p>
+  <p>• Community Growth</p>
+  <p>• Marketing Push</p>
+</div>
+
+<div class="section">
+  <h2>COIN INFO</h2>
+  <p>Name: PINKPORTAL</p>
+  <p>Chain: Solana</p>
+  <p>Max Supply: 1,000,000,000</p>
+  <p>Tax: 0%</p>
+  <p>Liquidity burn </p>
+</div>
+
+<div class="footer">© 2026 PINKPORTAL</div>
+
+</div>
+
+<script>
+/* 🔥 CHANGE ONLY THIS */
+const CONTRACT_ADDRESS = " COMING SOON ";
+
+/* Auto update everywhere */
+buyNow.href = pumpBtn.href = "https://pump.fun/" + CONTRACT_ADDRESS;
+solBtn.href = "https://solscan.io/token/" + CONTRACT_ADDRESS;
+dexFrame.src = "https://dexscreener.com/solana/" + CONTRACT_ADDRESS;
+caBox.innerText = "CA: " + CONTRACT_ADDRESS;
+
+/* Live price */
+async function updateLivePrice(){
+  try{
+    const r = await fetch("https://api.dexscreener.com/latest/dex/tokens/" + CONTRACT_ADDRESS);
+    const d = await r.json();
+    if(d.pairs?.length){
+      livePriceText.innerText = "$" + parseFloat(d.pairs[0].priceUsd).toFixed(6);
+    }
+  }catch{}
+}
+updateLivePrice();
+setInterval(updateLivePrice,1000);
+</script>
 
 </body>
 </html>
