@@ -2,217 +2,168 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Royal Whale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PINKPORTAL</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
-  margin:0;
-  font-family:'Inter', sans-serif;
+  font-family:'Orbitron',sans-serif;
+  background:url('https://i.ibb.co/xK0L9QhF/Gemini-Generated-Image-a4dk8fa4dk8fa4dk.png') center/cover fixed;
   color:#fff;
-  text-align:center;
-  background:#08000d;
-  overflow-x:hidden;
 }
 
-h1,h2{
-  font-family:'Orbitron', sans-serif;
-  color:#ff2bd6;
-  letter-spacing:3px;
-}
+.overlay{background:rgba(0,0,0,.72);padding:30px 10px;text-align:center}
 
-.container{
-  max-width:950px;
-  margin:auto;
-  padding:20px;
-}
+/* HERO */
+.title-img{max-width:420px;margin:30px auto 20px auto;display:block}
+.whale-img{max-width:300px;margin:20px auto 20px auto;animation:float 4s ease-in-out infinite;display:block}
+@keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-15px)}100%{transform:translateY(0)}}
 
-.logo img{
-  max-width:280px;
-  margin:20px auto;
-  filter: drop-shadow(0 0 20px #ff2bd6);
-}
+/* BUTTONS */
+.btn-row{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:20px 0}
+.btn{padding:14px 30px;border-radius:40px;font-weight:bold;text-decoration:none;display:inline-flex;align-items:center;gap:10px;color:#000;background:linear-gradient(45deg,#ffd700,#ffb700);transition:.3s}
+.btn img{width:22px;height:22px}
+.btn:hover{transform:scale(1.05)}
 
-.buy-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  background:linear-gradient(90deg,#ff2bd6,#ff79e9);
-  color:#000;
-  padding:12px 30px;
-  border-radius:40px;
-  font-weight:700;
-  margin:10px;
-  text-decoration:none;
-  box-shadow:0 0 25px #ff2bd6;
-  transition:.3s;
-}
+/* X ICON */
+.x-icon{margin-top:15px}
+.x-icon img{width:40px;height:40px;transition:.3s}
+.x-icon img:hover{transform:scale(1.2)}
 
-.buy-btn:hover{
-  box-shadow:0 0 45px #ff79e9;
-}
+/* BOX */
+.box{max-width:1000px;margin:30px auto;background:rgba(255,255,255,.05);border:1px solid rgba(255,215,0,.3);border-radius:20px;padding:25px;margin-bottom:30px}
+h2{color:#ffd700;margin-bottom:25px}
 
-.buy-btn img{
-  width:22px;
-}
+/* CA */
+.ca-box{background:#000;border:1px solid gold;border-radius:14px;padding:15px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.ca-text{color:#0f0;word-break:break-all}
+.copy-btn{background:gold;border:none;padding:8px 20px;border-radius:20px;cursor:pointer;font-weight:bold}
 
-#livePriceBox{
-  display:inline-flex;
-  align-items:center;
-  background:rgba(255,43,214,.12);
-  color:#ff79e9;
-  font-family:'Orbitron';
-  font-weight:bold;
-  padding:6px 14px;
-  border-radius:12px;
-  margin-bottom:6px;
-}
+/* STATS */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}
+.card{background:rgba(0,0,0,.55);padding:18px;border-radius:15px;border:1px solid rgba(255,215,0,.3)}
+.live{color:#00ff6a;animation:blink 1.2s infinite}
+@keyframes blink{0%{opacity:1}50%{opacity:.4}100%{opacity:1}}
 
-#livePriceBox .dot{
-  width:10px;
-  height:10px;
-  background:#00ff00;
-  border-radius:50%;
-  margin-right:8px;
-  animation:blink 1s infinite;
-}
-
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0;}
-}
-
-.ca-box{
-  background:#120016;
-  border:2px solid #ff2bd6;
-  border-radius:14px;
-  padding:14px;
-  margin:20px 0;
-  color:#ff79e8;
-  font-weight:bold;
-  word-break:break-all;
-}
-
-.section{
-  background:#120016;
-  border:1px solid #ff2bd6;
-  border-radius:18px;
-  padding:20px;
-  margin:25px 0;
-}
-
-iframe{
-  width:100%;
-  height:450px;
-  border:none;
-  border-radius:14px;
-}
-
-.x-link img{
-  width:42px;
-  margin-top:10px;
-  filter:drop-shadow(0 0 10px #ff2bd6);
-}
-
-.footer{
-  margin:40px 0 10px;
-  font-size:13px;
-  color:#ff89e8;
-}
+iframe{width:100%;height:600px;border:none;border-radius:20px}
+footer{padding:30px;text-align:center;color:#aaa}
 </style>
 </head>
+
 <body>
+<div class="overlay">
 
-<div class="container">
+<!-- TITLE TOP -->
+<img class="title-img" src="https://i.ibb.co/mjfLd39/Gemini-Generated-Image-5unpy35unpy35unp-removebg-preview.png">
 
-<h1>PINKPORTAL</h1>
+<!-- WHALE IMAGE BELOW TITLE -->
+<img class="whale-img" src="https://i.ibb.co/x8JfvKf8/unnamed-1-removebg-preview.png">
 
-<div class="logo">
-  <img src="https://i.ibb.co/NnQ6qpgP/New-Drawing-removebg-preview.png">
-</div>
-
-<div id="livePriceBox">
-  <div class="dot"></div>
-  <span id="livePriceText">$0.000000</span>
-</div>
-
-<a id="buyNow" class="buy-btn" target="_blank">
-  <img src="https://i.ibb.co/spZsHzq3/images-removebg-preview.png">
-  BUY NOW
-</a>
-
-<div class="x-link">
-  <a href="https://x.com/pink_portal1?s=09" target="_blank">
-    <img src="https://i.ibb.co/nsfr05sC/images-9-removebg-preview.png">
-  </a>
-</div>
-
-<div id="caBox" class="ca-box"></div>
-
-<div class="section">
-  <h2>OPEN LINKS</h2>
-
-  <a id="pumpBtn" class="buy-btn" target="_blank">
+<!-- BUTTONS BELOW WHALE -->
+<div class="btn-row">
+  <a class="btn" id="pumpBtn" target="_blank">
     <img src="https://i.ibb.co/spZsHzq3/images-removebg-preview.png">
-    PUMP.FUN
+    BUY ON PUMP.FUN
   </a>
-
-  <a id="solBtn" class="buy-btn" target="_blank">
+  <a class="btn" id="solBtn" target="_blank">
     <img src="https://i.ibb.co/6RT4VkH7/favicon-2-Hung-Dinh.png">
-    SOLSCAN
+    VIEW ON SOLSCAN
   </a>
 </div>
 
-<div class="section">
-  <h2>LIVE CHART</h2>
+<!-- X ICON BELOW BUTTONS -->
+<div class="x-icon">
+  <a href="https://x.com/Solumpdesh?t=EF1wwb34lbOWGJEOqyfx4Q&s=09" target="_blank">
+    <img src="https://i.ibb.co/KcWbgt0w/x-social-media-icon-3d-466778-4381-removebg-preview.png" alt="X Social Icon">
+  </a>
+</div>
+
+<!-- CONTRACT ADDRESS -->
+<section>
+<h2>CONTRACT ADDRESS</h2>
+<div class="box">
+  <div class="ca-box">
+    <span class="ca-text" id="ca">PASTE_YOUR_CA_HERE</span>
+    <button class="copy-btn" onclick="copyCA()">COPY</button>
+  </div>
+</div>
+</section>
+
+<!-- LIVE STATS -->
+<section>
+<h2>LIVE STATS</h2>
+<div class="box grid">
+  <div class="card">Price<br><b class="live" id="price">--</b></div>
+  <div class="card">Market Cap<br><b class="live" id="mc">--</b></div>
+  <div class="card">Liquidity<br><b class="live" id="liq">--</b></div>
+  <div class="card">24h Volume<br><b class="live" id="vol">--</b></div>
+</div>
+</section>
+
+<!-- ROADMAP -->
+<section>
+<h2>ROADMAP</h2>
+<div class="box">
+Phase 1 – Royal Launch 🚀<br>
+Phase 2 – Whale Accumulation 🐋<br>
+Phase 3 – Ocean Control 🌊<br>
+Phase 4 – Crown the Holders 👑
+</div>
+</section>
+
+<!-- COIN INFO -->
+<section>
+<h2>COIN INFORMATION</h2>
+<div class="box grid">
+  <div class="card">Name: Royal Whale</div>
+  <div class="card">ticker: $Royalwhale</div>
+  <div class="card">Chain: Solana</div>
+  <div class="card">Total Supply: 1,000,000,000</div>
+</div>
+</section>
+
+<!-- DEXSCREENER -->
+<section>
+<h2>DEXSCREENER</h2>
+<div class="box">
   <iframe id="dexFrame"></iframe>
 </div>
+</section>
 
-<div class="section">
-  <h2>ROADMAP</h2>
-  <p>• 100% FEE Buyback </p>
-  <p>• Community Growth</p>
-  <p>• Marketing Push</p>
-</div>
-
-<div class="section">
-  <h2>COIN INFO</h2>
-  <p>Name: PINKPORTAL</p>
-  <p>Chain: Solana</p>
-  <p>Max Supply: 1,000,000,000</p>
-  <p>Tax: 0%</p>
-  <p>Liquidity burn </p>
-</div>
-
-<div class="footer">© 2026 PINKPORTAL</div>
-
-</div>
+<footer>
+© 2026 ROYAL WHALE 🐋👑
+</footer>
 
 <script>
-/* 🔥 CHANGE ONLY THIS */
-const CONTRACT_ADDRESS = " COMING SOON ";
+const CA="PASTE_YOUR_CA_HERE";
 
-/* Auto update everywhere */
-buyNow.href = pumpBtn.href = "https://pump.fun/" + CONTRACT_ADDRESS;
-solBtn.href = "https://solscan.io/token/" + CONTRACT_ADDRESS;
-dexFrame.src = "https://dexscreener.com/solana/" + CONTRACT_ADDRESS;
-caBox.innerText = "CA: " + CONTRACT_ADDRESS;
+document.getElementById("ca").innerText=CA;
+document.getElementById("pumpBtn").href=`https://pump.fun/${CA}`;
+document.getElementById("solBtn").href=`https://solscan.io/token/${CA}`;
+document.getElementById("dexFrame").src=`https://dexscreener.com/solana/${CA}?embed=1&theme=dark`;
 
-/* Live price */
-async function updateLivePrice(){
-  try{
-    const r = await fetch("https://api.dexscreener.com/latest/dex/tokens/" + CONTRACT_ADDRESS);
-    const d = await r.json();
-    if(d.pairs?.length){
-      livePriceText.innerText = "$" + parseFloat(d.pairs[0].priceUsd).toFixed(6);
-    }
-  }catch{}
+function copyCA(){
+  navigator.clipboard.writeText(CA);
+  alert("CA Copied!");
 }
-updateLivePrice();
-setInterval(updateLivePrice,1000);
+
+async function loadDex(){
+  const r=await fetch(`https://api.dexscreener.com/latest/dex/tokens/${CA}`);
+  const d=await r.json();
+  if(!d.pairs) return;
+  const p=d.pairs.sort((a,b)=>(b.liquidity?.usd||0)-(a.liquidity?.usd||0))[0];
+  price.innerText=p.priceUsd?`$${(+p.priceUsd).toFixed(6)}`:"--";
+  mc.innerText=p.fdv?`$${(+p.fdv).toLocaleString()}`:"--";
+  liq.innerText=p.liquidity?.usd?`$${(+p.liquidity.usd).toLocaleString()}`:"--";
+  vol.innerText=p.volume?.h24?`$${(+p.volume.h24).toLocaleString()}`:"--";
+}
+
+loadDex();
+setInterval(loadDex,30000);
 </script>
 
 </body>
