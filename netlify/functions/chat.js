@@ -1,3 +1,5 @@
+const https = require('https');
+
 exports.handler = async function(event, context) {
   if (event.httpMethod === 'OPTIONS') {
     return {
@@ -23,39 +25,45 @@ exports.handler = async function(event, context) {
       ...body.messages
     ];
 
-    const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + process.env.GROQ_API_KEY
-      },
-      body: JSON.stringify({
-        'llama-3.3-70b-versatile',
-        max_tokens: 1000,
-        messages: groqMessages
-      })
+    const postData = JSON.stringify({
+      model: 'llama-3.3-70b-versatile',
+      max_tokens: 1000,
+      messages: groqMessages
     });
 
-    const responseText = await response.text();
-    console.log('Groq response:', responseText);
-    
-    const data = JSON.parse(responseText);
-    
-    if (data.error) {
-      console.log('Groq error:', data.error);
-      return {
-        statusCode: 200,
+    const text = await new Promise((resolve, reject) => {
+      const options = {
+        hostname: 'api.groq.com',
+        path: '/openai/v1/chat/completions',
+        method: 'POST',
         headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          content: [{ type: 'text', text: 'Error: ' + data.error.message }]
-        })
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + process.env.GROQ_API_KEY,
+          'Content-Length': Buffer.byteLength(postData)
+        }
       };
-    }
 
-    const text = data.choices[0].message.content;
+      const req = https.request(options, (res) => {
+        let data = '';
+        res.on('data', (chunk) => { data += chunk; });
+        res.on('end', () => {
+          try {
+            const parsed = JSON.parse(data);
+            if (parsed.error) {
+              resolve('Error: ' + parsed.error.message);
+            } else {
+              resolve(parsed.choices[0].message.content);
+            }
+          } catch(e) {
+            resolve('Parse error: ' + data);
+          }
+        });
+      });
+
+      req.on('error', (e) => reject(e));
+      req.write(postData);
+      req.end();
+    });
 
     return {
       statusCode: 200,
@@ -67,8 +75,8 @@ exports.handler = async function(event, context) {
         content: [{ type: 'text', text: text }]
       })
     };
+
   } catch (err) {
-    console.log('Error:', err.message);
     return {
       statusCode: 200,
       headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
