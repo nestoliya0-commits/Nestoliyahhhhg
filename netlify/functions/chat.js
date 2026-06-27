@@ -17,25 +17,45 @@ exports.handler = async function(event, context) {
 
   try {
     const body = JSON.parse(event.body);
+    
+    const groqMessages = [
+      { role: 'system', content: body.system },
+      ...body.messages
+    ];
 
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
+        'Authorization': 'Bearer ' + process.env.GROQ_API_KEY
       },
       body: JSON.stringify({
         model: 'llama3-70b-8192',
         max_tokens: 1000,
-        messages: [
-          { role: 'system', content: body.system },
-          ...body.messages
-        ]
+        messages: groqMessages
       })
     });
 
-    const data = await response.json();
-    const text = data.choices?.[0]?.message?.content || 'Sorry, please try again.';
+    const responseText = await response.text();
+    console.log('Groq response:', responseText);
+    
+    const data = JSON.parse(responseText);
+    
+    if (data.error) {
+      console.log('Groq error:', data.error);
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: [{ type: 'text', text: 'Error: ' + data.error.message }]
+        })
+      };
+    }
+
+    const text = data.choices[0].message.content;
 
     return {
       statusCode: 200,
@@ -48,11 +68,13 @@ exports.handler = async function(event, context) {
       })
     };
   } catch (err) {
+    console.log('Error:', err.message);
     return {
-      statusCode: 500,
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      body: JSON.stringify({ error: err.message })
+      statusCode: 200,
+      headers: { 'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        content: [{ type: 'text', text: 'Error: ' + err.message }]
+      })
     };
   }
 };
-        
