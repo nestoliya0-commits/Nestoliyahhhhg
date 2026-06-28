@@ -176,12 +176,14 @@ BOOKING_DATA:{"name":"...","date":"...","time":"...","party":...,"special":"..."
 
   async function sendEmail(b) {
     try {
-      await emailjs.send('service_uzxziud', 'template_ci9yd0o', {
-        name: b.name,
-        date: b.date,
-        time: b.time,
-        party: b.party,
-        special: b.special || 'None'
+      await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          bookingData: b,
+          system: SYSTEM,
+          messages: []
+        })
       });
       console.log('Email sent!');
     } catch(e) {
